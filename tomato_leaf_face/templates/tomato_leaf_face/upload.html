@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>トマト病害識別器</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'tomato_leaf_face/css/style.css' %}" />
+    <link rel="shortcut icon" href="../../static/tomato_leaf_face/images/tomato-icon.ico">
+  </head>
+
+  <body class="container">
+    <h1>植物病害判定</h1>
+    <div class="readable">
+    <p class="h5">
+      トマトの葉表に発生する病害種を識別するアプリです。
+      <br />
+      識別したいトマトの葉表画像をアップロードしてみましょう。
+    </p>
+    <h2 class="target">トマト対象病害</h2>
+    <table class="diagnosis__labels__table">
+
+      <tbody><tr class="diagnosis__labels__row">
+      <td class="diagnosis__labels__label">健全</td>
+      </tr>
+      
+      <tr class="diagnosis__labels__row">
+      <td class="diagnosis__labels__label">うどんこ病</td>
+      </tr>
+      
+      <tr class="diagnosis__labels__row">
+      <td class="diagnosis__labels__label">灰色かび病</td>
+      </tr>
+      
+      <tr class="diagnosis__labels__row">
+      <td class="diagnosis__labels__label">すすかび病</td>
+      </tr>
+      
+      <tr class="diagnosis__labels__row">
+      <td class="diagnosis__labels__label">葉かび病</td>
+      </tr>
+      
+      <tr class="diagnosis__labels__row">
+      <td class="diagnosis__labels__label">疫病</td>
+      </tr>
+      
+      <tr class="diagnosis__labels__row">
+      <td class="diagnosis__labels__label">褐色輪紋病</td>
+      </tr>
+      
+      <tr class="diagnosis__labels__row">
+      <td class="diagnosis__labels__label">青枯病</td>
+      </tr>
+      
+      <tr class="diagnosis__labels__row">
+      <td class="diagnosis__labels__label">かいよう病</td>
+      </tr>
+      
+      <tr class="diagnosis__labels__row">
+      <td class="diagnosis__labels__label">黄化葉巻病</td>
+      </tr>
+
+      </tbody></table>
+    <form
+      enctype="multipart/form-data"
+      action="{% url 'tomato_leaf_face:upload' %}"
+      method="POST"
+      class="form-block"
+    >
+      {% csrf_token %} {{form.as_p}}
+      <br />
+      <button class="submit_button" type="submit">アップロード</button>
+      <a href="{% url 'tomato_leaf_face:showall' %}" class="past_results">過去の結果一覧を見る</a>
+    </form>
+    </div>
+  </body>
+</html>

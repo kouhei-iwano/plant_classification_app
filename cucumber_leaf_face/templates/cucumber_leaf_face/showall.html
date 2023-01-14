@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>キュウリ病害識別器 | 結果一覧</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'cucumber_leaf_face/css/style.css' %}" />
+    <link rel="shortcut icon" href="../../static/cucumber_leaf_face/images/cucumber-icon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.css" rel="stylesheet">
+  </head>
+
+  <body class="container">
+    <h1>過去の結果一覧</h1>
+    <table class="showall">
+      <thead>
+        <tr>
+          <th>画像 \ 確率</th>
+          <th>1st</th>
+          <th>2nd</th>
+          <th>3rd</th>
+          <th>4th</th>
+          <th>5th</th>
+        </tr>
+      </thead>
+      <tbody class="showall_nama_value">
+        {% for image in images %}
+        <tr>
+          <th><a href="{{ image.picture.url }}" data-lightbox="image" data-title="予測ラベル：{{ image.first_name }}"><img src="{{ image.picture.url }}" height="70" /></a></th>
+          <td>
+            <h3>
+              {{ image.first_name }}<br />
+              {{ image.first_value }}%
+            </h3>
+          </td>
+          <td>
+            <h3>
+              {{ image.second_name }}<br />
+              {{ image.second_value }}%
+            </h3>
+          </td>
+          <td>
+            <h3>
+              {{ image.third_name }}<br />
+              {{ image.third_value }}%
+            </h3>
+          </td>
+          <td>
+            <h3>
+              {{ image.fourth_name }}<br />
+              {{ image.fourth_value }}%
+            </h3>
+          </td>
+          <td>
+            <h3>
+              {{ image.fifth_name }}<br />
+              {{ image.fifth_value }}%
+            </h3>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <br />
+    <br />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" type="text/javascript"></script>
+  </body>
+</html>

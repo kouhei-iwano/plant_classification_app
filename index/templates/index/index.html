@@ -1,0 +1,58 @@
+{% load static %}
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>植物AI未来研究所</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{% static 'index/css/style.css' %}" />
+        <link rel="shortcut icon" href="../../static/index/images/logo-light.ico">
+    </head>
+    
+    <body class="container">
+        <header>
+            <h1>
+              <a href="">
+                <h1 class="plant_ai_future_lab">植物AI未来研究所</h1>
+              </a>
+            </h1>
+        </header>
+        <h2 class="text-center system">植物病害自動診断システム</h2>
+        <div class="text-center mb-5 plant_model">
+            <h2 class="pt-2">キュウリ</h2>
+            <a class="select_button" href="{% url 'cucumber_leaf_face:upload' %}">識別</a>
+        </div>
+        <div class="text-center mb-5 plant_model">
+            <h2 class="pt-2">ナス</h2>
+            <a class="select_button" href="{% url 'eggplant_leaf_face:upload' %}">識別</a>
+        </div>
+        <div class="text-center mb-5 plant_model">
+            <h2 class="pt-2">イチゴ</h2>
+            <a class="select_button" href="{% url 'strawberry_leaf_face:upload' %}">識別</a>
+        </div>
+        <div class="text-center mb-5 plant_model">
+            <h2 class="pt-2">トマト</h2>
+            <a class="select_button" href="{% url 'tomato_leaf_face:upload' %}">識別</a>
+        </div>
+
+        <div class="mt-5 history">
+            <h2>変更履歴</h2>
+            <div>
+                <ul>
+                    
+                    <li>2022/10/26 キュウリ病害識別器を追加しました</li>
+                    
+                    <li>2022/11/28 ナス病害識別器を追加しました</li>
+                    
+                    <li>2022/12/22 イチゴ病害識別器を追加しました</li>
+                    
+                    <li>2023/01/09 トマト病害識別器を更新しました</li>
+                    
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <address> © 2022-2023 KOHEI.</address>
+        </footer>
+    </body>
+</html>
